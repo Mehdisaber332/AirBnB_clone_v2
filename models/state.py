@@ -32,4 +32,3 @@ class State(BaseModel, Base):
             """
             return [city for city in models.storage.all("City").values()
                     if city.state_id == self.id]
-            
