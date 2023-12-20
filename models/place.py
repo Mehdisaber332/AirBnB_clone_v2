@@ -9,7 +9,6 @@ from sqlalchemy import Column, Integer, Float, String, ForeignKey, Table
 from os import getenv
 
 storage_type = getenv("HBNB_TYPE_STORAGE")
-
 if storage_type == "db":
     relationship_table = Table('place_amenity', Base.metadata,
                                Column('place_id', String(60),
