@@ -8,6 +8,10 @@ import json
 import os
 
 
+@unittest.skipIf(
+    os.getenv("HBNB_TYPE_STORAGE") == "db",
+    "Test is not for BaseModel"
+)
 class test_basemodel(unittest.TestCase):
     """ """
 
