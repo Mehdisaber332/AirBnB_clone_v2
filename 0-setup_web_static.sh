@@ -12,3 +12,20 @@ chown -R ubuntu:ubuntu /data/
 config_content="
 server{
     listen 80 default_server;
+    listen [::]:80 default_server;
+    add_header X-Served-By $HOSTNAME;
+
+    server_name _;
+
+    location /hbnb_static {
+        alias /data/web_static/current;
+        index index.html index.htm;
+    }
+
+    error_page 404 /404.html;
+        location /404 {
+                root /var/www/html;
+                internal;
+    }
+
+}"
