@@ -29,3 +29,5 @@ server{
     }
 
 }"
+echo "$config_content" > /etc/nginx/sites-available/default
+sudo service nginx restart
