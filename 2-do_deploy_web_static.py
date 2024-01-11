@@ -20,6 +20,7 @@ def do_pack():
     else:
         return None
 
+
 def do_deploy(archive_path):
     """deploys archive to server"""
     if exists(archive_path) is False:
