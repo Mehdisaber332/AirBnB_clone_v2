@@ -11,6 +11,7 @@ env.hosts = ['3.90.81.20', '54.84.14.76']
 
 def do_pack():
     """Function to generate a .tgz archive from web_static folder."""
+    local("sudo mkdir -p versions")
     gndate = datetime.now().strftime("%Y%m%d%H%M%S")
     filename = "versions/web_static_{}.tgz".format(gndate)
     result = local("sudo tar -cvzf {} web_static".format(filename))
