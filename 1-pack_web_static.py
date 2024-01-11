@@ -18,7 +18,7 @@ def do_pack():
     try:
         local("tar -czvf {} -C web_static .".format(file_path))
         file_size = os.path.getsize(file_path)
-        print("web_static packed: {} -> {} Bytes".format(file_path, file_size)) 
+        print("web_static packed: {} -> {} Bytes".format(file_path, file_size))
         return file_path
     except Exception as e:
         print("Error: {}".format(e))
