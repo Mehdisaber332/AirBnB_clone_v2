@@ -2,6 +2,8 @@
 """script starts a Flask web application"""
 from flask import Flask, render_template
 from models import storage
+from models import *
+from models.state import State
 
 
 app = Flask(__name__)
@@ -64,7 +66,7 @@ def states_list(n):
 @app.teardown_appcontext
 def teardown_db(exception):
     """closes the storage on teardown"""
-    storage.close()
+    return storage.close()
 
 
 if __name__ == "__main__":
