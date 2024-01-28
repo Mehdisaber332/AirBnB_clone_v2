@@ -2,7 +2,6 @@
 """script starts a Flask web application"""
 from flask import Flask, render_template
 from models import storage
-from models import *
 from models.state import State
 
 
@@ -58,7 +57,7 @@ def odd_or_even(n):
 
 
 @app.route('/states_list', strict_slashes=False)
-def states_list(n):
+def states_list():
     states = sorted(list(storage.all("State").values()), key=lambda x: x.name)
     return render_template("7-states_list.html", state_list=states)
 
@@ -66,7 +65,7 @@ def states_list(n):
 @app.teardown_appcontext
 def teardown_db(exception):
     """closes the storage on teardown"""
-    return storage.close()
+    storage.close()
 
 
 if __name__ == "__main__":
